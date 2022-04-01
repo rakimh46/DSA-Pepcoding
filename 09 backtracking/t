@@ -1,0 +1,14 @@
+public static void floodfill (int[][] maze
+    if (r < e ||r >= maze.length || c < e || c >= maze [0].length || maze[r][c] == 1 || visited rc){
+        // invalid
+                                              int r int c String psf boolean [][]visited) {
+        return
+    if(r == maze.length-1 && c == maze[0].length-1){
+        System.out.println(psf);
+        return;
+    visited [r][c] = true;
+    flood(maze,r-1,c,psf+'t',visited);// top
+    flood(maze,r,c-1, psf+'l',visited);// Left
+    flood(maze, r+1,c, psf+'d',visited);// down
+    flood(maze,r,c+1, psf+'r', visited);// right
+    visited [r][c] = false;
