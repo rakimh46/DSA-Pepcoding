@@ -15,9 +15,10 @@ public class InfixEvaluation {
             char ch = exp.charAt(i);
             if (ch == '(') {
                 operators.push(ch);
-                System.out.println("3  "+operators);
+                System.out.println("3 operators "+operators);
             } else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-                while (operators.size() > 0 && operators.peek() != '(' && precedence(operators.peek()) >= precedence(ch)) {
+                while (operators.size() > 0 && operators.peek() != '(' 
+                && precedence(operators.peek()) >= precedence(ch)) {
                     char op = operators.pop();
                     int v2 = operands.pop(), v1 = operands.pop();
 
@@ -32,8 +33,8 @@ public class InfixEvaluation {
                         
                 }
                 operators.push(ch);
-                System.out.println("2    "+operands);
-                System.out.println("2  +  "+operators);
+                System.out.println("2  operands  "+operands);
+                System.out.println("2  operators  "+operators);
                 
             } else if (ch == ')') {
                 while (operators.peek() != '(') {
@@ -51,9 +52,13 @@ public class InfixEvaluation {
                 }
                 operators.pop();
 
+                System.out.println("4  operands  "+operands);
+                System.out.println("4  operators  "+operators);
+
+
             } else if (ch >= '0' && ch <= '9') {
                 operands.push(Integer.parseInt(ch + ""));
-                System.out.println("1   "+operands);
+                System.out.println("1 operands  "+operands);
             }
         }
 
@@ -70,9 +75,7 @@ public class InfixEvaluation {
             else if (op == '/')
                 operands.push(v1 / v2);
         }
-
         return operands.pop();
-
     }
 
     public static int precedence(char ch) {
