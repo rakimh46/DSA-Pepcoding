@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class QueueStart {
+public class StartQueue {
     public static void main(String[] args) {
         Queue<Integer> qu=new ArrayDeque<>();
 
@@ -10,11 +10,15 @@ public class QueueStart {
         qu.add(30);
         qu.add(40);
         qu.add(50);
-        qu.add(60);
         System.out.println(qu);
         System.out.println( qu.remove());
+        qu.add(60);
+        System.out.println(qu);
         System.out.println(qu.peek());
                     
-        };
+        }
+
+    public void push(int i) {
+    };
     }
 

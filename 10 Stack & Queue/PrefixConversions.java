@@ -19,7 +19,7 @@ public class PrefixConversions {
             if (ch == '+' || ch == '*' || ch == '-' || ch == '/') {
                 evaluation(eval, ch);
                 infix(inExp, ch);
-                prefix(postExp, ch);
+                postfix(postExp, ch);
             } else {
                 eval.push(Integer.parseInt(ch + ""));
                 inExp.push(ch+"");
@@ -52,7 +52,7 @@ public class PrefixConversions {
         inExp.push('(' + v1 + op + v2 + ')');
     }
 
-    public static void prefix(Stack<String> postExp, char op) {
+    public static void postfix(Stack<String> postExp, char op) {
         String v1 = postExp.pop(), v2 = postExp.pop();
         postExp.push(v1 + v2+op);
     }

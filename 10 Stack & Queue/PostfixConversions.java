@@ -7,7 +7,7 @@
  */
 import java.util.Stack;
 
-public class PostfixEvaluation {
+public class PostfixConversions {
     public static void main(String[] args) {
         String post = "264*8/+3-";
 
