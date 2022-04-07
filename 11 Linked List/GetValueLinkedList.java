@@ -1,10 +1,4 @@
-/**
- * Linked_List_Start
- * Add last
- * Display
- * size
- */
-public class LinkedListStart {
+public class GetValueLinkedList {
 
     public static class Node {
         int data;
@@ -56,6 +50,45 @@ public class LinkedListStart {
         int size() {
             return this.size;
         }
+
+        public int getFirst() {
+            // write your code here
+            if (size() == 0) {
+                System.out.println("List is empty");
+                return -1;
+            } else {
+                return head.data;
+            }
+
+        }
+
+        public int getLast() {
+            // write your code here
+            if (size() == 0) {
+                System.out.println("List is empty");
+                return -1;
+            } else {
+                return tail.data;
+            }
+        }
+
+        public int getAt(int idx) {
+            // write your code here
+            if (size == 0) {
+                System.out.println("List is empty");
+                return -1;
+            } else if (idx < 0 && idx >= size()) {
+                System.out.println("Invalid arguments");
+                return -1;
+            } else {
+                Node temp = head;
+                while(idx>0){
+                    temp=temp.next;
+                    idx--;
+                }
+                return temp.data;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -67,9 +100,7 @@ public class LinkedListStart {
         LL.addLast(50);
         LL.display();
         System.out.println(LL.size());
-        LL.removeFirst();
-        LL.display();
+        System.out.println(LL.getAt(3));
 
     }
-
 }
