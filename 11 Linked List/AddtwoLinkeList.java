@@ -1,7 +1,0 @@
-/**
- * AddtwoLinkeList
- */
-public class AddtwoLinkeList {
-
-  
-}
