@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Stack;
+
 public class implementation {
-    public class Node{
+    private static class Node{
         int data;
         ArrayList<Node> children;
         Node(){
