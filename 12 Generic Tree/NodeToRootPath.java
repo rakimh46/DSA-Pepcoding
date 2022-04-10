@@ -1,5 +1,5 @@
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class NodeToRootPath {
     private static class Node {
@@ -24,6 +24,7 @@ public class NodeToRootPath {
         }
         return new ArrayList<Integer>();
     }
+
     public static void display(Node node) {
         String str = node.data + " -> ";
         for (Node child : node.children) {
