@@ -1,11 +1,9 @@
-/**
-Ceil And Floor In Generic Tree
-5 april 22:23
- */
+//Kth Largest Element In Tree
+//6 April 19:25
 import java.io.*;
 import java.util.*;
 
-public class CeilAndFloor {
+public class KthLargElement {
     private static class Node {
         int data;
         ArrayList<Node> children = new ArrayList<>();
@@ -34,12 +32,11 @@ public class CeilAndFloor {
 
         return root;
     }
-
+    
     static int ceil;
     static int floor;
 
-    public static void ceilAndFloor(Node node, int val) {
-        // Write your code here
+    public static int ceilAndFloor(Node node, int val) {
         if(node.data>val){
             if(node.data<ceil){
                 ceil=node.data;
@@ -49,9 +46,23 @@ public class CeilAndFloor {
                 floor=node.data;
             }
         }
-        for(Node child:node.children){
+
+        for (Node child : node.children) {
             ceilAndFloor(child, val);
         }
+        return floor;
+    }
+
+    public static int kthLargest(Node node, int k) {
+        // write your code here
+        int ans=Integer.MAX_VALUE;
+        while(k!=0){
+            floor=Integer.MIN_VALUE;
+            ceilAndFloor(node, ans);
+            ans=floor;
+            k--;
+        }
+        return ans;
     }
 
     public static void main(String[] args) throws Exception {
@@ -63,14 +74,11 @@ public class CeilAndFloor {
             arr[i] = Integer.parseInt(values[i]);
         }
 
-        int data = Integer.parseInt(br.readLine());
+        int k = Integer.parseInt(br.readLine());
 
         Node root = construct(arr);
-        ceil = Integer.MAX_VALUE;
-        floor = Integer.MIN_VALUE;
-        ceilAndFloor(root, data);
-        System.out.println("CEIL = " + ceil);
-        System.out.println("FLOOR = " + floor);
+        int kthLargest = kthLargest(root, k);
+        System.out.println(kthLargest);
     }
 
 }
