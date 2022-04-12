@@ -112,7 +112,7 @@ public class Size_Sum_Maximum_Height {
     public static int height(Node node) {
         // write your code here
         if (node == null) {
-            return 0;
+            return -1; // terms of edge   or return 0 in terms of height
         }
         int lheigh = height(node.left);
         int rheigh = height(node.right);
