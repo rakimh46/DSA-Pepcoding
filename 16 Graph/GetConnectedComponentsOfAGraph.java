@@ -34,10 +34,44 @@ public class GetConnectedComponentsOfAGraph {
             graph[v2].add(new Edge(v2, v1, wt));
         }
 
-        ArrayList<ArrayList<Integer>> comps = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> allcomps = new ArrayList<>();
 
         // write your code here
+        gcc(graph, allcomps);
 
-        System.out.println(comps);
+        System.out.println(allcomps);
+    }
+
+    public static ArrayList<ArrayList<Integer>> gcc(ArrayList<Edge>[] graph, ArrayList<ArrayList<Integer>> allcomps) {
+        // ArrayList<ArrayList<Integer>> allcomps = new ArrayList<>();
+        boolean[] visited = new boolean[graph.length];
+        for (int vtx = 0; vtx < graph.length; vtx++) {
+            if (visited[vtx] == false) {
+                ArrayList<Integer> res = new ArrayList<>();
+                gcc(graph, vtx, res, visited);
+                allcomps.add(res);
+            }
+        }
+
+        return allcomps;
+    }
+
+    public static void gcc(ArrayList<Edge>[] graph, int vtx, ArrayList<Integer> res, boolean[] visited) {
+        res.add(vtx);
+        visited[vtx] = true;
+        for (Edge e : graph[vtx]) {
+            if (visited[e.nbr] == false) {
+                gcc(graph, e.nbr, res, visited);
+            }
+        }
     }
 }
+
+// input
+// 7
+// 5
+// 0 1 10
+// 2 3 10
+// 4 5 10
+// 5 6 10
+// 4 6 10
