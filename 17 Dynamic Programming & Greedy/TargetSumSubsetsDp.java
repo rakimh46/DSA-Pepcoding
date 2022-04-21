@@ -1,5 +1,3 @@
-import java.lang.annotation.Target;
-
 public class TargetSumSubsetsDp {
     public static void main(String[] args) {
         int[] coins = { 4, 7, 1, 3};

@@ -3,18 +3,19 @@ import java.util.*;
 public class Goldmine {
 
     public static void main(String[] args) throws Exception {
-        // write your code here
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        int m = scn.nextInt();
-        int[][] mine = new int[n][m];
-        for (int i = 0; i < mine.length; i++) {
-            for (int j = 0; j < mine[0].length; j++) {
-                mine[i][j] = scn.nextInt();
+        try (// write your code here
+        Scanner scn = new Scanner(System.in)) {
+            int n = scn.nextInt();
+            int m = scn.nextInt();
+            int[][] mine = new int[n][m];
+            for (int i = 0; i < mine.length; i++) {
+                for (int j = 0; j < mine[0].length; j++) {
+                    mine[i][j] = scn.nextInt();
+                }
             }
-        }
 
-        gold(mine);
+            gold(mine);
+        }
     }
 
     public static void gold(int[][] mine) {
