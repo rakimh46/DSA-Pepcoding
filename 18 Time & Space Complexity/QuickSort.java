@@ -46,14 +46,15 @@ public class QuickSort {
     }
 
     public static void main(String[] args) throws Exception {
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = scn.nextInt();
+        try (Scanner scn = new Scanner(System.in)) {
+            int n = scn.nextInt();
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+                arr[i] = scn.nextInt();
+            }
+            quickSort(arr, 0, arr.length - 1);
+            print(arr);
         }
-        quickSort(arr, 0, arr.length - 1);
-        print(arr);
     }
 
 }

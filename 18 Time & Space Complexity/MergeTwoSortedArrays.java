@@ -40,19 +40,20 @@ public class MergeTwoSortedArrays {
     }
 
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        int n = scn.nextInt();
-        int[] a = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = scn.nextInt();
+        try (Scanner scn = new Scanner(System.in)) {
+            int n = scn.nextInt();
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++) {
+                a[i] = scn.nextInt();
+            }
+            int m = scn.nextInt();
+            int[] b = new int[m];
+            for (int i = 0; i < m; i++) {
+                b[i] = scn.nextInt();
+            }
+            int[] mergedArray = mergeTwoSortedArrays(a, b);
+            print(mergedArray);
         }
-        int m = scn.nextInt();
-        int[] b = new int[m];
-        for (int i = 0; i < m; i++) {
-            b[i] = scn.nextInt();
-        }
-        int[] mergedArray = mergeTwoSortedArrays(a, b);
-        print(mergedArray);
     }
 
 }
