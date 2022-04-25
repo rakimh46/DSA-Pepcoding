@@ -17,7 +17,6 @@ public class Combinations2 {
             return;
         }
         for (int i = lb + 1; i < boxes.length; i++) {
-
             boxes[i] = ci;
             combinations(boxes, ci + 1, ti, i);
             boxes[i] = 0;
