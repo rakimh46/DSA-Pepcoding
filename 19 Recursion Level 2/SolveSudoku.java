@@ -65,14 +65,15 @@ public class SolveSudoku {
     }
 
     public static void main(String[] args) throws Exception {
-        Scanner scn = new Scanner(System.in);
-        int[][] arr = new int[9][9];
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                arr[i][j] = scn.nextInt();
+        try (Scanner scn = new Scanner(System.in)) {
+            int[][] arr = new int[9][9];
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    arr[i][j] = scn.nextInt();
+                }
             }
-        }
 
-        solveSudoku(arr, 0, 0);
+            solveSudoku(arr, 0, 0);
+        }
     }
 }
