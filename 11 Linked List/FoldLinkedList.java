@@ -7,8 +7,8 @@ public class FoldLinkedList {
 
     public static class LinkedList {
         Node head;
-        static Node tail;
-        static int size;
+         Node tail;
+         int size;
 
         void addLast(int val) {
             Node temp = new Node();

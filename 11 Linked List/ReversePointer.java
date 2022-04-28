@@ -1,7 +1,5 @@
 //Reverse Linked List (pointer - Recursive)
-
 import java.io.*;
-import java.util.*;
 
 public class ReversePointer {
     public static class Node {

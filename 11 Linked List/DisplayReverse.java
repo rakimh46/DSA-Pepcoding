@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.*;
+
 public class DisplayReverse {
   public static class Node {
     int data;
