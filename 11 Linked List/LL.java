@@ -208,20 +208,193 @@ public class LL {
             }
         }
 
-        public void reversePI(){
-            Node prev=null;
-            Node curr=head;
-            while(curr!=null){
-                Node nbr=curr.next;
-                curr.next=prev;
-                prev=curr;
-                curr=nbr;
+        public void reversePI() {
+            Node prev = null;
+            Node curr = head;
+            while (curr != null) {
+                Node nbr = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = nbr;
             }
 
-            Node temp=head;
-            head=tail;
-            tail=temp;
-          }
+            Node temp = head;
+            head = tail;
+            tail = temp;
+        }
+
+        public int kthFromLast(int k) {
+            // write your code here
+            Node slow = head, fast = head;
+            while (k > 0) {
+                fast = fast.next;
+                k--;
+            }
+
+            while (fast != null) {
+                slow = slow.next;
+                fast = fast.next;
+            }
+            return slow.data;
+        }
+
+        public int mid() {
+            Node slow = head, fast = head;
+            while (fast != tail && fast.next != tail) {
+                slow = slow.next;
+                fast = fast.next.next;
+            }
+            return slow.data;
+        }
+
+        public void removeDuplicates() {
+            // write your code here
+            LinkedList res = new LinkedList();
+            res.addFirst(this.getFirst());
+            this.removeFirst();
+            while (this.size() > 0) {
+                if (this.getFirst() == res.getLast()) {
+                    this.removeFirst();
+                } else {
+                    res.addFirst(this.getFirst());
+                    this.removeFirst();
+                }
+            }
+
+            this.head = res.head;
+            this.tail = res.tail;
+            this.size = res.size;
+        }
+
+        public void oddEven() {
+            LinkedList oddList = new LinkedList();
+            LinkedList evenList = new LinkedList();
+            while (this.size > 0) {
+                int temp = this.getFirst();
+                if (temp % 2 == 0) {
+                    evenList.addLast(temp);
+                } else {
+                    oddList.addLast(temp);
+                }
+                this.removeFirst();
+            }
+            if (oddList.size > 0 && evenList.size > 0) {
+                this.head = oddList.head;
+                oddList.tail.next = evenList.head;
+                this.tail = evenList.tail;
+                this.size = oddList.size + evenList.size;
+            } else if (oddList.size > 0) {
+                this.head = oddList.head;
+                this.tail = oddList.tail;
+                this.size = oddList.size;
+            } else if (evenList.size > 0) {
+                this.head = evenList.head;
+                this.tail = evenList.tail;
+                this.size = evenList.size;
+            }
+
+        }
+
+        private void reversePRHelper(Node node) {
+            if (node == null) {
+                return;
+            }
+            reversePRHelper(node.next);
+            if (node != tail) {
+                node.next.next = node;
+            }
+        }
+
+        public void reversePR() {
+            reversePRHelper(head);
+            head.next = null;
+            Node temp = head;
+            head = tail;
+            tail = temp;
+        }
+
+        public static Node left;
+
+        private boolean IsPalindromeHelper(Node node) {
+            if (node == null) {
+                return true;
+            }
+
+            boolean rres = IsPalindromeHelper(node.next);
+            if (rres == false) {
+                return false;
+            } else {
+                if (left.data == node.data) {
+                    left = left.next;
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        public boolean IsPalindrome() {
+            left = head;
+            return IsPalindromeHelper(head);
+        }
+
+        public static Node start;
+
+        private void foldHelper(Node node, int idx) {
+            if (node == null) {
+                return;
+            }
+            foldHelper(node.next, idx + 1);
+            if (idx > size / 2) {
+                Node temp = start.next;
+                start.next = node;
+                node.next = temp;
+                start = temp;
+            } else if (idx == size / 2) {
+                node.next = null;
+                this.tail = node;
+                return;
+            }
+
+        }
+
+        public void fold() {
+            start = head;
+            foldHelper(head, 0);
+        }
+
+        public void kReverse(int k) {
+            // write your code here
+            LinkedList ans = null;
+            LinkedList temp = new LinkedList();
+
+            while (this.size > 0) {
+                if (size >= k) {
+                    for (int i = 0; i < k; i++) {
+                        temp.addFirst(getFirst());
+                        removeFirst();
+                    }
+                } else {
+                    while (size() > 0) {
+                        temp.addLast(getFirst());
+                        removeFirst();
+                    }
+                }
+                if(ans==null){
+                    ans=temp;
+                    temp=new LinkedList();
+                }else{
+                    ans.tail.next=temp.head;
+                    ans.tail=temp.tail;
+                    ans.size+=temp.size;
+                    temp=new LinkedList();
+                }
+            }
+
+            this.head=ans.head;
+            this.tail=ans.tail;
+            this.size=ans.size;
+        }
 
     }
 
@@ -250,5 +423,14 @@ public class LL {
         ll.display();
         ll.reversePI();
         ll.display();
+        System.out.println(ll.kthFromLast(3));
+        ll.oddEven();
+        ll.display();
+        ll.reversePR();
+        System.out.println(ll.IsPalindrome());
+        ll.display();
+        ll.fold();
+        ll.display();
+
     }
 }
