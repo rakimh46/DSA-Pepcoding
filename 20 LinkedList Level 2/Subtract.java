@@ -22,6 +22,7 @@
           }
           return len;
       }
+      
       public static ListNode reverse(ListNode head){
           if(head==null || head.next==null){
                 return head;
