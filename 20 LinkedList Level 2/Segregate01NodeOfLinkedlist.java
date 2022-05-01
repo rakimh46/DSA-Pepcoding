@@ -1,7 +1,7 @@
-// swaap
+//Segregate 01 Node Of Linkedlist Over Swapping Nodes
 import java.util.*;
 
-public class SegregateZeroOneTwoNode {
+public class Segregate01NodeOfLinkedlist {
     public static Scanner scn = new Scanner(System.in);
 
     public static class ListNode {
@@ -13,40 +13,29 @@ public class SegregateZeroOneTwoNode {
         }
     }
 
-    public static ListNode segregate012(ListNode head) {
-        if (head == null || head.next == null)
+    public static ListNode segregate01(ListNode head) {
+        if (head == null) {
             return head;
-
-        ListNode zero = new ListNode(-1);
-        ListNode zp = zero;
-
-        ListNode one = new ListNode(-1);
-        ListNode op = one;
-
-        ListNode two = new ListNode(-1);
-        ListNode tp = two;
-
-        ListNode curr = head;
-        while (curr != null) {
-            if (curr.val == 0) {
-                zp.next = curr;
-                zp = zp.next;
-            } else if (curr.val == 1) {
-                op.next = curr;
-                op = op.next;
-            } else {
-                tp.next = curr;
-                tp = tp.next;
-            }
-
-            curr = curr.next;
         }
 
-        op.next = two.next;
-        zp.next = one.next;
-        tp.next = null;
+        ListNode Done = new ListNode(-1);
+        ListNode Dzero = new ListNode(-1);
 
-        return zero.next;
+        ListNode curr = head, pone = Done, pzero = Dzero;
+
+        while (curr != null) {
+            if (curr.val == 0) {
+                pzero.next = curr;
+                pzero = pzero.next;
+            } else {
+                pone.next = curr;
+                pone = pone.next;
+            }
+            curr = curr.next;
+        }
+        pzero.next = Done.next;
+        pone.next = null;
+        return Dzero.next;
     }
 
     public static void printList(ListNode node) {
@@ -70,7 +59,7 @@ public class SegregateZeroOneTwoNode {
     public static void main(String[] args) {
         int n = scn.nextInt();
         ListNode h1 = createList(n);
-        h1 = segregate012(h1);
+        h1 = segregate01(h1);
         printList(h1);
     }
 }
