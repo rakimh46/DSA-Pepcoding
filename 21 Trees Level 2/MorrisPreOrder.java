@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class MorrisTraversal {
+public class MorrisPreOrder {
     public static class Node {
         int data;
         Node left;
