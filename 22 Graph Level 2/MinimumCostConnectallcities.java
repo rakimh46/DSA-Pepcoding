@@ -17,7 +17,7 @@ public class MinimumCostConnectallcities {
     }
 
     public static class Pair implements Comparable<Pair> {
-        int vtx, wt;
+        int vtx,wt;
 
         Pair(int vtx, int wt) {
             this.vtx = vtx;
@@ -43,6 +43,7 @@ public class MinimumCostConnectallcities {
             }
 
             vis[rem.vtx] = true;
+            System.out.println(rem.vtx);
             ans += rem.wt;
 
             for (Edge e : graph[rem.vtx]) {
