@@ -28,10 +28,7 @@ class Solution {
         int[] res = new int[n];
         Arrays.fill(res, Integer.MAX_VALUE);
         res[0] = 0;
-        for (int i = 0; i < n; i++) {
-            if (i == n - 1) {
-
-            }
+        for (int i = 0; i < n-1; i++) {
             for (int[] e : edges) {
                 int u = e[0];
                 int v = e[1];

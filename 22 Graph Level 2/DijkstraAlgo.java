@@ -64,7 +64,7 @@ class Solution {
         }
     }
 
-    public static int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
+    public  int[] dijkstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adj, int S) {
         // Write your code here
         int[] vis = new int[V];
         Arrays.fill(vis, -1);
