@@ -1,6 +1,8 @@
 import java.util.PriorityQueue;
+import java.util.*;
 
 public class SwimRisingWater {
+    public static Scanner scn=new Scanner(System.in);
     public static void main(String[] args) {
         int[][] grid = { { 0, 1, 2, 3, 4 },
                 { 24, 23, 22, 21, 5 },
