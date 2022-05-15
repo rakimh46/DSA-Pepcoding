@@ -38,7 +38,7 @@ public class DSU_Implementation {
             if (parent[vtx] == vtx) {
                 return vtx;
             }
-            return parent[vtx] + find(parent[vtx]);
+            return parent[vtx] = find(parent[vtx]);
         }
 
         public boolean isConnected(int vtx1, int vtx2) {
