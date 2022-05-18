@@ -71,7 +71,7 @@ class ArticulationPoint {
         continue;
       } else if (vis[v] == true) {
         low[u] = Math.min(low[u], dis[v]);
-      } else {
+      } else {    
         par[v] = u;
         dfs(v, graph);
         if (par[u] == 0) {
