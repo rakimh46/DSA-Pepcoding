@@ -12,7 +12,7 @@ public class PartitionLabels {
             a[ch - 'a'] = i++;
         }
 
-        i = 0;
+        i = 0; // prev point
         for (int j = 0; j < s.length(); j++) {
             char ch = s.charAt(j);
             max = Math.max(max, a[ch - 'a']);
