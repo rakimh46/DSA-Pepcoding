@@ -1,5 +1,5 @@
 public class KConcatenationMaximumSum {
-    public static int mod = (int) (Math.pow(10, 9) + 7);
+    public static int mod = (int) (Math.pow(10, 9) + 7);   //int mod=(int)1e9 +7; shprtucut way
 
     public int kConcatenationMaxSum(int[] arr, int k) {
         int n = arr.length;
