@@ -22,8 +22,9 @@ public class LongestCommonSubstring {
         return max;
     }
 
+    public static Scanner scn = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
         String s1 = scn.next();
         String s2 = scn.next();
         System.out.println(solution(s1, s2));
