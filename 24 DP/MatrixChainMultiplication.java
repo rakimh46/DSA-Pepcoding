@@ -22,7 +22,6 @@ public class MatrixChainMultiplication {
                         int cont = lans + rans + mc;
                         min = Math.min(min, cont);
                     }
-
                     dp[i][j] = min;
                 }
             }
